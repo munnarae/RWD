@@ -101,63 +101,71 @@ input[type="search"] {
     font-size: var(--text-sm);
   }
   
- /* 모바일 검색 폼 */
- .searchForm__group .formInput {
-  flex-grow: 1;
-}
+  /* 모바일 검색 폼 */
+  .searchForm__group .formInput {
+    flex-grow: 1;
+  }
 
-/* 모바일 메뉴 제어 버튼 시작 */
+  /* 모바일 메인메뉴 제어버튼 */
+  .buttonWrapper {
+    padding: var(--spacing-xxs);
+    overflow: hidden;
+    position: absolute;
+    top: 3.75rem;
+    right: var(--spacing-lg);
+    transform: translate(-0.25rem, -0.25rem);
+  }
 
-.buttonWrapper {
-  background: gold;
-  overflow: hidden;
-}
+  .button--burger {
+    position: relative;
+    width: 2rem;
+    height: 2rem;
+  }
 
-.button--burger {
-  width: 30px;
-  height: 30px;
-  background: blue;
-  position: relative;
-}
+  .button--burger:focus {
+    outline-offset: 2px;
+  }
 
-[class*="button--burgerBar"] {
-  background: var(--white);
-  width: 100%;
-  height: 20%;
-  border-radius: 10px;
-  position: absolute;
-  left:0;
-  transition: all 200ms;
-}
+  .button--burgerBarTop,
+  .button--burgerBarMiddle,
+  .button--burgerBarBottom {
+    position: absolute;
+    width: 100%;
+    height: 20%;
+    background: var(--white);
+    border-radius: 0.25rem;
+    left: 0;
+    transition: all 200ms;
+  }
 
-.button--burgerBarTop {
-  top: 0;
-}
-.button--burgerBarMiddle {
-  top: 50%;
-  transform: translateY(-50%);
-}
-.button--burgerBarBottom {
-  top: 100%;
-  transform: translateY(-100%);
-}
+  .button--burgerBarTop {
+    top: 0;
+  }
 
-.is--active .button--burgerBarTop {
-  top: 50%;
-  transform: translate(0%, -50%) rotate(-45deg);
-}
-.is--active .button--burgerBarMiddle {
-  transform: translate(-100%, -50%);
-}
-.is--active .button--burgerBarBottom {
-  top: 50%;
-  transform: translate(0%, -50%) rotate(45deg);
-}
+  .button--burgerBarMiddle {
+    top: 50%;
+    transform: translateY(-50%);
+  }
 
+  .button--burgerBarBottom {
+    top: 100%;
+    transform: translateY(-100%);
+  }
 
-  /* 모바일 메뉴 제어 버튼 종료 */
+  .button--burger.is--active .button--burgerBarTop {
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+  }
 
-}
+  .button--burger.is--active .button--burgerBarMiddle {
+    transform: translate(-150%, -50%);
+  }
+
+  .button--burger.is--active .button--burgerBarBottom {
+    top: 50%;
+    transform: translateY(-50%) rotate(-45deg);
+  }
+  }
   
   /* 데스크탑 디바이스 (Desktop Device) */
   @media (min-width: 769px) {
