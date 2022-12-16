@@ -24,9 +24,7 @@
   display: block;
   width: 100%;
   height: 100%;
-  background: url(./../images/webcafe-logo.png) no-repeat 0 0/100%;
-  /* 0 0은 포지션  /100%는 가로 세로 사이즈가 100% 100%라는 얘기임. 둘다 같으니 한개로 표시한 것*/
-  /* 가로세로 따로 주려면 숫자 하나 더 주면 됨 */
+  background: url(./../images/webcafe-logo.png) no-repeat 0 0/100% 100%;
 }
 
 /* 공통 멤버서비스 */
@@ -65,7 +63,7 @@ input[type="search"] {
   height: 2rem;
   border-radius: 0.25rem;
   padding: var(--spacing-sxxs) var(--spacing-sm);
-  flex: 0 0 auto; 
+  flex: 0 0 auto;
   font-size: var(--text-sm);
 }
 
@@ -87,6 +85,13 @@ input[type="search"] {
   border: 1px solid currentColor;
 }
 
+/* 공통 메인 메뉴 */
+.menu__link {
+  display: block;
+  font-size: var(--text-md);
+  font-weight: 700;
+}
+
 /* 모바일 디바이스 (Mobile Device) */
 @media (min-width: 320px) and (max-width: 768px) {
   /* 모바일 헤더 */
@@ -100,7 +105,7 @@ input[type="search"] {
     order: -1;
     font-size: var(--text-sm);
   }
-  
+
   /* 모바일 검색 폼 */
   .searchForm__group .formInput {
     flex-grow: 1;
@@ -129,6 +134,7 @@ input[type="search"] {
   .button--burgerBarTop,
   .button--burgerBarMiddle,
   .button--burgerBarBottom {
+    pointer-events: none;
     position: absolute;
     width: 100%;
     height: 20%;
@@ -165,34 +171,58 @@ input[type="search"] {
     top: 50%;
     transform: translateY(-50%) rotate(-45deg);
   }
+
+    /* 모바일 메인 메뉴 */
+  .menu__list {
+    background: var(--accent-opacity-color);
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    width: 70%;
+    height: 100vh;
+    backdrop-filter: blur(4px);
+    padding: var(--spacing-lg);
+    transform: translateX(-150%);
   }
-  
-  /* 데스크탑 디바이스 (Desktop Device) */
-  @media (min-width: 769px) {
-    /* 데스크탑 헤더 */
-    .appHeader {
-      max-width: var(--container-width);
-      margin-left: auto;
-      margin-right: auto;
-    }
-    
-    /* 데스크탑 로고 */
-    .logo {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-    }
-  
-  
+
+  .menu__item {
+    border-bottom: 1px solid var(--silver);
+  }
+
+  .menu__link {
+    padding: var(--spacing-xs);
+  }
+
+  .menu.is--active .menu__list {
+    transform: none;
+  }
+}
+
+/* 데스크탑 디바이스 (Desktop Device) */
+@media (min-width: 769px) {
+  /* 데스크탑 헤더 */
+  .appHeader {
+    max-width: var(--container-width);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* 데스크탑 로고 */
+  .logo {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
   /* 데스크탑 검색 폼 */
   .searchForm__group {
     justify-content: flex-end;
   }
-  
-  .searchForm__group .formInput {
-    width: 25rem; /* 400px */
-  }
 
+  .searchForm__group .formInput {
+    width: 25rem;
+  }
 
   /* 데스크탑 메인메뉴 제어버튼 */
   .button--burger {
@@ -217,12 +247,13 @@ input[type="search"] {
 
   .menu__link {
     display: block;
-    padding: var(--spacing-md);
+    padding: var(--spacing-md) var(--spacing-lg);
     color: var(--white);
     font-size: 1.2rem;
     font-weight: 700;
     text-shadow: 1px 1px 0 var(--black), -1px -1px 0 var(--black);
   }
+}
 
 /* 고해상도 배경이미지 미디어쿼리 */
 @media (-webkit-min-device-pixel-ratio: 2),
@@ -234,3 +265,4 @@ input[type="search"] {
   .logo__link {
     background-image: url(./../images/webcafe-logo@2x.png);
   }
+}
