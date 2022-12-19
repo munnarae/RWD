@@ -35,6 +35,7 @@
 }
 
 /* 공통 검색 폼 */
+/* 이렇게 설정하면 ul기본 컨트롤의 기본 모양을 제어함.. */
 input[type="search"] {
   -webkit-appearance: none;
   appearance: none;
