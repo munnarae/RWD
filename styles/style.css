@@ -124,7 +124,7 @@ input[type="search"] {
   grid-area: favorite;
 }
 
-/* 공통 추천 서적 */
+/* 공통 트위터 */
 .twitter {
   background-color: burlywood;
   grid-area: twitter;
@@ -242,6 +242,12 @@ input[type="search"] {
   .appMain {
     grid-template-columns: 1fr;
     grid-template-rows: auto;
+    grid-template-areas: 
+    "book"
+    "news"
+    "board"
+    "favorite"
+     "twitter";
   }
 }
 
@@ -300,14 +306,10 @@ input[type="search"] {
 
   /* 데스크탑 메인 콘텐츠 */
   .appMain {
-    max-width: var(--container-width);
+    width: var(--container-width);
     margin-left: auto;
     margin-right: auto;
-    grid-template-columns: repeat(12, 1fr);
-    grid-template-areas:
-      "news news news news news news news news news news news news"
-      "book book book book twitter twitter twitter twitter twitter favorite favorite favorite"
-      "book book book book . board board board board board board board";
+    border: 5px solid red;
   }
 }
 
