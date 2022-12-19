@@ -35,7 +35,6 @@
 }
 
 /* 공통 검색 폼 */
-/* 이렇게 설정하면 ul기본 컨트롤의 기본 모양을 제어함.. */
 input[type="search"] {
   -webkit-appearance: none;
   appearance: none;
@@ -100,37 +99,72 @@ input[type="search"] {
   padding: var(--spacing-base) var(--spacing-lg);
 }
 
+/* 공통 메인 콘텐츠 섹션 제목 */
+[class*="__title"]{
+  margin-bottom: var(--spacing-base);
+  /* display: flex;
+  flex-flow: column nowrap;
+  justify-content: center; */
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 4rem 4rem;
+}
+
+
+
+
+[class*="__koTitle"]{
+  font-size: var(--text-md);
+  font-weight: 700;
+  background-color: brown;
+  align-self: end;
+}
+
+[class*="__enTitle"]{
+  background: purple;
+  align-self: start;
+}
+
+.sprite{
+  color: white;
+  background: blue url("./../images/sprite_main.png") no-repeat;
+  height: 8rem;
+  padding-left: 4rem;
+}
+
+.spriteBook{
+
+}
+
 /* 공통 추천 서적 */
 .book {
-  background-color: lightgreen;
+  background: lightgreen;
   grid-area: book;
 }
 
 /* 공통 새소식 */
 .news {
-  background-color: yellow;
+  background: yellow;
   grid-area: news;
 }
 
 /* 공통 게시판 */
 .board {
-  background-color: lightsalmon;
+  background: lightsalmon;
   grid-area: board;
 }
 
 /* 공통 인기 사이트 */
 .favorite {
-  background-color: skyblue;
+  background: skyblue;
   grid-area: favorite;
 }
 
 /* 공통 트위터 */
 .twitter {
-  background-color: burlywood;
+  background: burlywood;
   grid-area: twitter;
 }
-
-
 
 /* 모바일 디바이스 (Mobile Device) */
 @media (min-width: 320px) and (max-width: 768px) {
@@ -174,7 +208,7 @@ input[type="search"] {
   .button--burgerBarTop,
   .button--burgerBarMiddle,
   .button--burgerBarBottom {
-    pointer-events: none;
+    /* pointer-events: none; */
     position: absolute;
     width: 100%;
     height: 20%;
@@ -212,7 +246,7 @@ input[type="search"] {
     transform: translateY(-50%) rotate(-45deg);
   }
 
-    /* 모바일 메인 메뉴 */
+  /* 모베알 메인 메뉴 */
   .menu__list {
     background: var(--accent-opacity-color);
     position: fixed;
@@ -224,6 +258,7 @@ input[type="search"] {
     backdrop-filter: blur(4px);
     padding: var(--spacing-lg);
     transform: translateX(-150%);
+    /* transition: all 600ms; */
   }
 
   .menu__item {
@@ -238,16 +273,16 @@ input[type="search"] {
     transform: none;
   }
 
-  /* 모바일 메인 콘텐츠  */
+  /* 모바일 메인 콘텐츠 */
   .appMain {
     grid-template-columns: 1fr;
     grid-template-rows: auto;
-    grid-template-areas: 
-    "book"
-    "news"
-    "board"
-    "favorite"
-     "twitter";
+    grid-template-areas:
+      "book"
+      "news"
+      "board"
+      "favorite"
+      "twitter";
   }
 }
 
@@ -311,11 +346,10 @@ input[type="search"] {
     margin-left: auto;
     margin-right: auto;
     grid-template-columns: repeat(12, 1fr);
-    grid-template-areas:  "news news news news news news news news news news news news"
-                                          "book book book book twitter twitter twitter twitter twitter favorite favorite favorite"
-                                          "book book book book . board board board board board board board";
-    gap: var(--spacing-base);
-  }
+    grid-template-rows: auto;
+    grid-template-areas: "news news news news news news news news news news news news"
+                         "book book book book twitter twitter twitter twitter twitter favorite favorite favorite"
+                         "book book book book . board board board board board board board";
 }
 
 /* 고해상도 배경이미지 미디어쿼리 */
