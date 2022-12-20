@@ -40,7 +40,6 @@ video {
 
 .iframeWrapper {
   aspect-ratio: ;
-  position: relative;
 }
 .iframeRatio-21-9 {
   aspect-ratio: 21/9;
@@ -59,9 +58,6 @@ video {
 } 
 
 .iframeWrapper iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
 }

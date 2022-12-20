@@ -216,9 +216,9 @@ input[type="search"] {
 /* 공통 게시판 */
 .board {
   grid-area: board;
-  background-color: yellow;
   display: flex;
   flex-flow: row wrap;
+  overflow: hidden;
 }
 
 .board__title{
@@ -231,6 +231,7 @@ input[type="search"] {
   display: flex;
   flex-flow: column nowrap;
   gap: var(--spacing-sm);
+  width: 100%;
 }
 
 .board__item{
@@ -238,18 +239,15 @@ input[type="search"] {
   flex-flow: row nowrap;
 }
 
-
 .board__link{
   flex: 0 1 auto;
-  /* white-space: nowrap; */
+  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  background-color: pink;
   width: calc(100% - 6.25em);
 }
 .board__date{
   flex: 0 0 auto;
-  background-color: skyblue;
   width: 6.25em;
   text-align: right;
 }
